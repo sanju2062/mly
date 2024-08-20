@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../static/style.css" />
+    <title>Url Shorten Website</title>
+  </head>
+  <body class="body">
+    <div class="input">
+      <input
+        type="url"
+        name="longUrl"
+        id="longUrl"
+        class="longUrl"
+        placeholder="Enter url you want to short"
+      />
+      <button class="submit" type="submit" onclick="onClickHandler()">
+        Get Short Url
+      </button>
+    </div>
+    <div class="shortUrl">
+      <a href="" id="anchortag" target="_blank" class="anchortag"></a>
+    </div>
+    <!-- <div class="shortUrl" id="shortUrl"></div> -->
+    <script src="../static/script.js"></script>
+  </body>
+</html>
