@@ -23,6 +23,6 @@ app.get("/", (req, res) => {
 app.use("/a", require("./routes/redirect"));
 app.use("/api/url", require("./routes/url"));
 
-const PORT = 5000;
+const PORT = 2000;
 
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+module.exports = app;
