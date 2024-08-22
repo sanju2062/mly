@@ -1,12 +1,12 @@
 const express = require("express");
-// const connectDB = require("./config/db");
+const connectDB = require("./config/db");
 const path = require("path");
 const PORT = process.env.PORT || 5000;
 
 const app = express();
 
 // Connect to database
-// connectDB();
+connectDB();
 
 app.use(express.json());
 app.use("/static", express.static("static"));
@@ -20,7 +20,6 @@ app.set("views", path.join(__dirname, "views"));
 // Define Routes
 app.get("/", (req, res) => {
   try {
-    // Your code here
     res.status(200).render("index");
   } catch (error) {
     console.error("Error:", error);
