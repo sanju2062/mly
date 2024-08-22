@@ -1,5 +1,0 @@
-{
-  "mongoURI": "mongodb+srv://SanjuDeveloper:Mausam123@sanjudeveloper.rm0ud.mongodb.net/ABCD?retryWrites=true&w=majority",
-  "baseUrl": "http://localhost:5000",
-  "port": 5000
-}
