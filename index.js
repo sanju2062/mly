@@ -26,6 +26,7 @@ app.set("views", path.join(__dirname, "views"));
 
 // Define Routes
 app.get("/", (req, res) => {
+  console.log("its working get/");
   try {
     res.status(200).render("index");
   } catch (error) {
