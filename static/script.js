@@ -1,7 +1,6 @@
 async function shortenUrl(longUrl) {
   try {
     const baseUrl = window.location.origin;
-    console.log(baseUrl);
     const response = await fetch(baseUrl + "/api/url/shorten", {
       method: "POST",
       body: JSON.stringify({ longUrl: longUrl }),
@@ -24,9 +23,7 @@ async function shortenUrl(longUrl) {
 
 async function onClickHandler() {
   const longUrl = document.getElementById("longUrl").value;
-  // const shortUrl = document.getElementById("shortUrl");
   const data = await shortenUrl(longUrl);
-  // shortUrl.innerText = data;
 
   const tag = document.getElementById("anchortag");
   tag.innerText = data;

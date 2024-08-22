@@ -9,10 +9,9 @@ const Url = require("../models/Url");
 // @route     POST /api/url/shorten
 // @desc      Create short URL
 router.post("/shorten", async (req, res) => {
-  console.log("working");
   const { longUrl } = req.body;
-  const baseUrl = config.get("baseUrl");
-  console.log(baseUrl);
+  const baseUrl = `${req.protocol}://${req.get("host")}`;
+  console.log("Base URL:", baseUrl);
 
   // Check base url
   if (!validUrl.isUri(baseUrl)) {
@@ -25,26 +24,24 @@ router.post("/shorten", async (req, res) => {
   // Check long url
   if (validUrl.isUri(longUrl)) {
     try {
-      console.log("working post request");
-      res.json("working post request from server");
-      // let url = await Url.findOne({ longUrl });
+      let url = await Url.findOne({ longUrl });
 
-      // if (url) {
-      // res.json(url);
-      // } else {
-      // const shortUrl = baseUrl + "/a/" + urlCode;
+      if (url) {
+        res.json(url);
+      } else {
+        const shortUrl = baseUrl + "/a/" + urlCode;
 
-      // url = new Url({
-      //   longUrl,
-      //   shortUrl,
-      //   urlCode,
-      //   date: new Date(),
-      // });
+        url = new Url({
+          longUrl,
+          shortUrl,
+          urlCode,
+          date: new Date(),
+        });
 
-      // await url.save();
+        await url.save();
 
-      //   res.json(url);
-      // }
+        res.json(url);
+      }
     } catch (err) {
       console.error(err);
       res.status(500).json("Server error");

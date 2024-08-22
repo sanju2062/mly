@@ -9,7 +9,7 @@ const app = express();
 connectDB();
 
 app.use(express.json());
-app.use("/static", express.static("static"));
+app.use("/static", express.static(path.join(__dirname, "static")));
 
 // Set EJS as the view engine
 app.set("view engine", "ejs");
