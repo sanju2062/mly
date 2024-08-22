@@ -8,15 +8,9 @@ const app = express();
 // Connect to database
 connectDB();
 
-app.use(express.json());
-app.use(
-  "/static",
-  (req, res, next) => {
-    console.log(`Static file request for: ${req.url}`);
-    next();
-  },
-  express.static(path.join(__dirname, "static"))
-);
+app.use(express.json({ extended: false }));
+app.use("/static", express.static("static"));
+app.use(express.urlencoded({ extended: true }));
 
 // Set EJS as the view engine
 app.set("view engine", "ejs");
@@ -26,7 +20,6 @@ app.set("views", path.join(__dirname, "views"));
 
 // Define Routes
 app.get("/", (req, res) => {
-  console.log("its working get/");
   try {
     res.status(200).render("index");
   } catch (error) {
