@@ -1,6 +1,8 @@
 async function shortenUrl(longUrl) {
   try {
-    const response = await fetch("http://localhost:3000/api/url/shorten", {
+    const baseUrl = window.location.origin;
+    console.log(baseUrl);
+    const response = await fetch(baseUrl + "/api/url/shorten", {
       method: "POST",
       body: JSON.stringify({ longUrl: longUrl }),
       headers: {

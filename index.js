@@ -1,6 +1,7 @@
 const express = require("express");
 const connectDB = require("./config/db");
 const path = require("path");
+const PORT = process.env.PORT || 5000;
 
 const app = express();
 
@@ -18,11 +19,19 @@ app.set("views", path.join(__dirname, "views"));
 
 // Define Routes
 app.get("/", (req, res) => {
-  res.status(200).render("index");
+  try {
+    // Your code here
+    res.status(200).render("index");
+  } catch (error) {
+    console.error("Error:", error);
+    res.status(500).send("Internal Server Error");
+  }
 });
 app.use("/a", require("./routes/redirect"));
 app.use("/api/url", require("./routes/url"));
 
-const PORT = 2000;
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
 
 module.exports = app;
