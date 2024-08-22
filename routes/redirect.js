@@ -20,3 +20,31 @@ router.get("/:code", async (req, res) => {
 });
 
 module.exports = router;
+
+// {
+//   "version": 2,
+//   "builds": [
+//     {
+//       "src": "app.js",
+//       "use": "@vercel/node"
+//     }
+//   ],
+//   "routes": [
+//     {
+//       "src": "/static/(.*)",
+//       "dest": "/static/$1"
+//     },
+//     {
+//       "src": "/a(.*)",
+//       "dest": "/a$1"
+//     },
+//     {
+//       "src": "/api/url(.*)",
+//       "dest": "/api/url$1"
+//     },
+//     {
+//       "src": "/(.*)",
+//       "dest": "/"
+//     }
+//   ]
+// }

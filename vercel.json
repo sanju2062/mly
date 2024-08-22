@@ -8,6 +8,18 @@
   ],
   "routes": [
     {
+      "src": "/static/(.*)",
+      "dest": "/static/$1"
+    },
+    {
+      "src": "/a(.*)",
+      "dest": "/routes/redirect.js"
+    },
+    {
+      "src": "/api/url(.*)",
+      "dest": "/routes/url.js"
+    },
+    {
       "src": "/(.*)",
       "dest": "./index.js"
     }
