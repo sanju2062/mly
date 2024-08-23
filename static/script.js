@@ -31,14 +31,43 @@ function isValidURL(string) {
   }
 }
 
+function disableLink(idOfAnchorTag) {
+  const link = document.getElementById(idOfAnchorTag);
+
+  // Prevent default action
+  link.addEventListener("click", function (event) {
+    event.preventDefault();
+  });
+
+  // Optionally add disabled style
+  link.style.pointerEvents = "none"; // Disables clicking
+  link.style.color = "gray"; // Optional: change color to indicate it's disabled
+  link.style.cursor = "not-allowed"; // Optional: change cursor to indicate it's disabled
+}
+
+function enableLink(idOfAnchorTag) {
+  const link = document.getElementById(idOfAnchorTag);
+
+  // Re-enable clicking
+  link.style.pointerEvents = "auto";
+  link.style.color = "blue"; // Reset to original color
+  link.style.cursor = "pointer"; // Reset to original cursor
+}
+
 async function onClickHandler() {
   const longUrl = document.getElementById("longUrl").value;
   const tag = document.getElementById("anchortag");
   if (isValidURL(longUrl)) {
     const data = await shortenUrl(longUrl);
     tag.innerText = data;
-    isValidURL(data) ? (tag.href = data) : (tag.href = "");
+    if (isValidURL(data)) {
+      enableLink("anchortag");
+      tag.href = data;
+    } else {
+      disableLink("anchortag");
+    }
   } else {
-    tag.innerText = "Enter the url in box";
+    tag.innerText = "Enter the correct url";
+    disableLink("anchortag");
   }
 }
