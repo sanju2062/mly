@@ -27,14 +27,12 @@ router.post("/shorten", async (req, res) => {
   // Check long url
   if (validUrl.isUri(longUrl)) {
     try {
-      let url = await Url.findOne({ longUrl });
-      console.log(url);
+      let url = await Url.find({ longUrl });
 
-      if (url && url.shortUrl.startsWith(baseUrl)) {
-        console.log("if statement working");
-        res.json(url);
+      let foundItem = url.find((item) => item.shortUrl.startsWith(baseUrl));
+      if (foundItem) {
+        res.json(foundItem);
       } else {
-        console.log("else statement working");
         const shortUrl = baseUrl + "/a/" + urlCode;
 
         url = new Url({
