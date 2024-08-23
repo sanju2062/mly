@@ -18,7 +18,7 @@ async function shortenUrl(longUrl) {
     }
   } catch (error) {
     console.log(error);
-    return "Error";
+    return "Check Internet Connection";
   }
 }
 
@@ -59,6 +59,7 @@ function enableLink(idOfAnchorTag) {
 }
 
 async function onClickHandler() {
+  console.log("wokring");
   const longUrl = document.getElementById("longUrl").value;
   const tag = document.getElementById("anchortag");
   if (isValidURL(longUrl)) {
