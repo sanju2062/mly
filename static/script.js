@@ -23,6 +23,7 @@ async function shortenUrl(longUrl) {
 
 async function onClickHandler() {
   const longUrl = document.getElementById("longUrl").value;
+  console.log("working script in client side" + longUrl);
   const data = await shortenUrl(longUrl);
 
   const tag = document.getElementById("anchortag");
