@@ -59,7 +59,6 @@ function enableLink(idOfAnchorTag) {
 }
 
 async function onClickHandler() {
-  console.log("wokring");
   const longUrl = document.getElementById("longUrl").value;
   const tag = document.getElementById("anchortag");
   if (isValidURL(longUrl)) {
