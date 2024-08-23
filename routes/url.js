@@ -29,7 +29,7 @@ router.post("/shorten", async (req, res) => {
     try {
       let url = await Url.findOne({ longUrl });
 
-      if (url) {
+      if (url && url.longUrl.startsWith(baseUrl)) {
         res.json(url);
       } else {
         const shortUrl = baseUrl + "/a/" + urlCode;
