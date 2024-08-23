@@ -49,9 +49,8 @@ function disableLink(idOfAnchorTag) {
 }
 
 function enableLink(idOfAnchorTag) {
-  link.removeEventListener("click", preventDefaultAction);
-
   const link = document.getElementById(idOfAnchorTag);
+  link.removeEventListener("click", preventDefaultAction);
 
   // Re-enable clicking
   link.style.pointerEvents = "auto";
