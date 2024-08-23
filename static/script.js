@@ -31,13 +31,16 @@ function isValidURL(string) {
   }
 }
 
+function preventDefaultAction(event) {
+  event.preventDefault();
+}
+
 function disableLink(idOfAnchorTag) {
   const link = document.getElementById(idOfAnchorTag);
+  link.href = "";
 
   // Prevent default action
-  link.addEventListener("click", function (event) {
-    event.preventDefault();
-  });
+  link.addEventListener("click", preventDefaultAction);
 
   // Optionally add disabled style
   link.style.pointerEvents = "none"; // Disables clicking
@@ -46,6 +49,8 @@ function disableLink(idOfAnchorTag) {
 }
 
 function enableLink(idOfAnchorTag) {
+  link.removeEventListener("click", preventDefaultAction);
+
   const link = document.getElementById(idOfAnchorTag);
 
   // Re-enable clicking
