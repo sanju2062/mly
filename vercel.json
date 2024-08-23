@@ -9,7 +9,7 @@
   "routes": [
     {
       "src": "/static/(.*)",
-      "dest": "/index.js"
+      "dest": "/static/$1"
     },
     {
       "src": "/a(.*)",
