@@ -8,6 +8,9 @@ const app = express();
 // Connect to database
 connectDB();
 
+app.use(express.json()); // To parse JSON bodies
+app.use(express.urlencoded({ extended: true })); // To parse URL-encoded bodies
+
 app.use("/static", express.static(path.join(__dirname, "static")));
 
 // Set EJS as the view engine

@@ -14,7 +14,7 @@ async function shortenUrl(longUrl) {
     } else if (response.status == 401) {
       return "Please Enter a valid Url";
     } else {
-      return response.status;
+      return "error " + response.status;
     }
   } catch (error) {
     return error;

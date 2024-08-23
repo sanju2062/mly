@@ -17,6 +17,10 @@ router.post("/shorten", async (req, res) => {
     return res.status(401).json("Invalid base url");
   }
 
+  if (!longUrl) {
+    return res.status(400).json({ error: "longUrl is required" });
+  }
+
   // Create url code
   const urlCode = shortid.generate();
 
