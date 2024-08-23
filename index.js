@@ -35,3 +35,14 @@ app.listen(PORT, () => {
 });
 
 module.exports = app;
+
+// root/
+//   routes/
+//     redirect.js
+//     url.js
+//   static/
+//     script.js
+//     style.css
+//   views/
+//     index.ejs
+//   index.js
