@@ -14,7 +14,7 @@ async function shortenUrl(longUrl) {
     } else if (response.status == 401) {
       return "Please Enter a valid Url";
     } else {
-      return "Error";
+      return "Check your Internet Connection";
     }
   } catch (error) {
     console.log(error);
