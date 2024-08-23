@@ -18,7 +18,7 @@ router.post("/shorten", async (req, res) => {
   }
 
   if (!longUrl) {
-    return res.status(400).json({ error: "longUrl is required" });
+    return res.status(401).json({ error: "Enter the url in box" });
   }
 
   // Create url code

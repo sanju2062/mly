@@ -6,7 +6,7 @@ const connectDB = async () => {
   console.log(db);
   mongoose
     .connect(db, {
-      serverSelectionTimeoutMS: 20000, // Increase to 10 seconds
+      serverSelectionTimeoutMS: 5000, // Increase to 10 seconds
       socketTimeoutMS: 45000, // Close sockets after 45 seconds of inactivity
     })
     .then(() => {

@@ -11,7 +11,9 @@ router.get("/:code", async (req, res) => {
     if (url) {
       return res.redirect(url.longUrl);
     } else {
-      return res.status(404).json("No url found");
+      return res
+        .status(404)
+        .json("This Link is in valid. Please generate the another Link.");
     }
   } catch (err) {
     console.error(err);
@@ -20,31 +22,3 @@ router.get("/:code", async (req, res) => {
 });
 
 module.exports = router;
-
-// {
-//   "version": 2,
-//   "builds": [
-//     {
-//       "src": "app.js",
-//       "use": "@vercel/node"
-//     }
-//   ],
-//   "routes": [
-//     {
-//       "src": "/static/(.*)",
-//       "dest": "/static/$1"
-//     },
-//     {
-//       "src": "/a(.*)",
-//       "dest": "/a$1"
-//     },
-//     {
-//       "src": "/api/url(.*)",
-//       "dest": "/api/url$1"
-//     },
-//     {
-//       "src": "/(.*)",
-//       "dest": "/"
-//     }
-//   ]
-// }
