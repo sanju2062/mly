@@ -3,7 +3,6 @@ const config = require("config");
 const db = process.env.mongoURI || config.get("mongoURI");
 
 const connectDB = async () => {
-  console.log(db);
   mongoose
     .connect(db, {
       serverSelectionTimeoutMS: 5000, // Increase to 10 seconds
