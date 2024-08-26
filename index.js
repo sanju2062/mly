@@ -6,7 +6,7 @@ const PORT = 5000;
 const app = express();
 
 // Connect to database
-// connectDB();
+connectDB();
 
 app.use(express.json()); // To parse JSON bodies
 app.use(express.urlencoded({ extended: true })); // To parse URL-encoded bodies

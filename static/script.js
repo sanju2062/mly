@@ -62,6 +62,9 @@ async function onClickHandler() {
   const longUrl = document.getElementById("longUrl").value;
   const tag = document.getElementById("anchortag");
   if (isValidURL(longUrl)) {
+    const button = document.getElementById("submitButton");
+    button.classList.add("loading"); // Add loading class
+    button.disabled = true;
     const data = await shortenUrl(longUrl);
     tag.innerText = data;
     if (isValidURL(data)) {
@@ -70,6 +73,9 @@ async function onClickHandler() {
     } else {
       disableLink("anchortag");
     }
+    button.classList.remove("loading"); // Remove loading class
+    button.disabled = false; // Re-enable the button
+    button.innerHTML = "Get Short Url"; // Reset the button text
   } else {
     tag.innerText = "Enter the correct url";
     disableLink("anchortag");
