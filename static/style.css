@@ -23,17 +23,25 @@ body {
 
 .title_container {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   margin-top: 20px;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
-  min-width: 100vw;
+  /* min-width: 100vw; */
 }
 
 .logo {
-  height: 60px;
-  width: 60px;
+  height: 90px;
+  width: 90px;
   border-radius: 28px;
+}
+
+.header_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 90vw;
+  text-align: center;
 }
 
 /* Container for input and button */
