@@ -13,11 +13,27 @@ button {
 /* General body styling */
 body {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   min-height: 100vh;
   background-color: #f5f5f5;
   flex-direction: column;
+  background-color: #df6868;
+}
+
+.title_container {
+  display: flex;
+  flex-direction: row;
+  margin-top: 20px;
+  justify-content: space-around;
+  align-items: center;
+  min-width: 100vw;
+}
+
+.logo {
+  height: 60px;
+  width: 60px;
+  border-radius: 28px;
 }
 
 /* Container for input and button */
