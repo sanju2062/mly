@@ -44,7 +44,7 @@ function disableLink(idOfAnchorTag) {
 
   // Optionally add disabled style
   link.style.pointerEvents = "none"; // Disables clicking
-  link.style.color = "gray"; // Optional: change color to indicate it's disabled
+  link.style.color = "#000000"; // Optional: change color to indicate it's disabled
   link.style.cursor = "not-allowed"; // Optional: change cursor to indicate it's disabled
 }
 
